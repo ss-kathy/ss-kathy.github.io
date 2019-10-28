@@ -1,1 +1,0 @@
-# ss-kathy.github.io
