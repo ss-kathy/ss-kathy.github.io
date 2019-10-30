@@ -19,7 +19,9 @@ instacart<-p8105.datasets::instacart
 instacart %>% 
   count(aisle) %>% 
   mutate(aisle = fct_reorder(aisle,n)) %>% 
-  plot_ly(x=~aisle,y=~n,color=~aisle,type="bar")
+  plot_ly(x=~aisle,y=~n,color=~aisle,type="bar") %>% 
+  layout(xaxis=list(title="Aisle"),
+         yaxis=list(title="Count of order"))
 
 
 ```
@@ -40,8 +42,7 @@ plot_ly() %>%
           domain = list(x = c(0, 0.4), y = c(0.4, 1))) %>%
   add_pie(data=pie_data,labels=~order_dow,values=~n,name="fresh vegetables",
           domain = list(x = c(0.6, 1), y = c(0.4, 1))) %>% 
-  add_pie(data=pie_data,labels=~order_dow,values=~n,name="packaged fruits vegetables",domain = list(x = c(0.25, 0.75), y = c(0, 0.6))) %>% 
-  layout(title="Order Distribution in a Week \nfrom Three Most Popular aisles")
+  add_pie(data=pie_data,labels=~order_dow,values=~n,name="packaged fruits vegetables",domain = list(x = c(0.25, 0.75), y = c(0, 0.6)))
 
 ```
 
@@ -56,12 +57,17 @@ order_day<-instacart %>%
   geom_line(aes(color=aisle)) 
   
 ggplotly(order_day) %>% 
-  layout(legend=list(x=100,y=0.5))
-
-
-  
-
-
+  layout(autosize = F, 
+         width = 400, 
+         height =280
+         ) %>% 
+  layout(xaxis=list(title="Day Time"),
+         yaxis=list(title="Order Count"),
+         legend=list(orientation = "h",   
+                     xanchor = "center",  
+                     y=-0.5
+                     )
+         )
 
 ```
 
