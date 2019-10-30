@@ -9,8 +9,8 @@ navbar:
       href: mailto:<ss5929@cumc.columbia.edu>
     - icon: fa-github fa-lg
       href: http://github.com/ss-kathy/
-    - icon: ai-cv ai-lg
-      href: ./Downloads/cv.pdf
+    - text: "CV"
+      href: ./Shuyi SHEN.pdf
 output:
   html_document:
     theme: cerulean
