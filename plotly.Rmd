@@ -1,0 +1,69 @@
+---
+title: "plotly"
+author: "Shuyi SHEN"
+date: "10/29/2019"
+output: html_document
+---
+
+```{r}
+library(tidyverse)
+library(p8105.datasets)
+library(ggplot2)
+library(plotly)
+
+instacart<-p8105.datasets::instacart
+
+```
+
+```{r}
+instacart %>% 
+  count(aisle) %>% 
+  mutate(aisle = fct_reorder(aisle,n)) %>% 
+  plot_ly(x=~aisle,y=~n,color=~aisle,type="bar")
+
+
+```
+
+
+```{r}
+pie_data<-instacart %>% 
+        filter(aisle=="fresh vegetables"|aisle=="packaged vegetables fruits"|aisle=="fresh fruits") %>%
+    select(order_dow,aisle) %>%
+    group_by(aisle) %>% 
+    count(order_dow) %>%
+    mutate(
+    order_dow=recode(order_dow,"0"="Sunday","1"="Monday","2"="Tuesday","3"="Wednesday","4"="Thursday","5"="Friday","6"="Saturday")
+  )
+
+plot_ly() %>% 
+  add_pie(data=pie_data,labels=~order_dow,values=~n,name="fresh fruits",
+          domain = list(x = c(0, 0.4), y = c(0.4, 1))) %>%
+  add_pie(data=pie_data,labels=~order_dow,values=~n,name="fresh vegetables",
+          domain = list(x = c(0.6, 1), y = c(0.4, 1))) %>% 
+  add_pie(data=pie_data,labels=~order_dow,values=~n,name="packaged fruits vegetables",domain = list(x = c(0.25, 0.75), y = c(0, 0.6))) %>% 
+  layout(title="Order Distribution in a Week \nfrom Three Most Popular aisles")
+
+```
+
+```{r}
+
+order_day<-instacart %>%
+  filter(aisle=="fresh vegetables"|aisle=="packaged vegetables fruits"|aisle=="fresh fruits") %>%
+  select(order_hour_of_day,aisle) %>% 
+  group_by(aisle) %>% 
+  count(order_hour_of_day) %>% 
+  ggplot(aes(x=order_hour_of_day,y=n))+
+  geom_line(aes(color=aisle)) 
+  
+ggplotly(order_day) %>% 
+  layout(legend=list(x=100,y=0.5))
+
+
+  
+
+
+
+```
+
+
+
