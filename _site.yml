@@ -12,6 +12,8 @@ navbar:
   left:
     - text: "About"
       href: about.html
+    - text: "Resume"
+      href: Resume.html
     - text: "Instacart"
       menu:
       - text: "plotly"

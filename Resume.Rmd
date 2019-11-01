@@ -1,0 +1,43 @@
+---
+title: "Resume"
+output: html_document
+---
+
+#### Education Background:
+
+Ocean University of China(09/2015-06/2019) 
+
+Major: Biological Science Bachelor of Science
+
+Columbia University(09/2019-05/2021)
+
+Major: Biostatistics Master of Science
+    
+#### Research Project
+Analysis of Marine Ecological Environment in Spring from 2014 to 2018 in Guangzhou Bay.
+
+■ Collected the data and observed the station distribution of different species.
+
+■ Classified and calculated the data index with Excel.
+
+■ Drew a contour map with Surfer to display the ecological community distribution.
+
+■ Compared and analyzed the four indexes of each category from 2014-2018 by using the ANOVA method, Chi-square test and t test with r.
+
+#### Extracurricular Activity
+
+Investigation and Survey of the Ocean environment in New Zealand 
+
+■ Visited and surveyed the marine environment by field trip and communicating with local professors. 
+
+■ Completed a report about the state of the natural reserve.
+
+#### Voluntary Instructor in Qingdao Aquarium 09/2015-09/2017
+
+■ Provided explanations about marine organisms to visitors.
+
+■ Guided visitors to different locations during peak season.
+
+■ Recruited and trained new members who were interested in being volunteers.
+
+##### You can also download this from CV icon.
